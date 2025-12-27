@@ -10,13 +10,15 @@
   <style>
     :root{
       --text:#111;
-      --muted:#555;
+      --muted:#556;
       --btn:#2f7d32;
       --btn-hover:#1b5e20;
       --accent:#2f7d32;
       --card:#f6fff6;
       --border:#dfeee0;
+      --shadow: 0 10px 24px rgba(0,0,0,.10);
     }
+
     *{box-sizing:border-box;margin:0;padding:0}
     body{
       font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
@@ -54,82 +56,106 @@
       padding:18px 15px 28px;
     }
 
-    /* Hero: stable height + cover (no stretching) */
+    /* HERO (background image + fallback) */
     .hero{
       border-radius:16px;
       overflow:hidden;
       background:#0f2f28;
-      box-shadow:0 8px 20px rgba(0,0,0,.10);
+      box-shadow:var(--shadow);
       margin:12px 0 18px;
       height:320px;
+      position:relative;
+      background-image:url("assets/hero.png");
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
     }
-    .hero img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
+    /* If image fails, we show this text */
+    .hero-fallback{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:flex-end;
+      padding:18px;
+      color:#eaf6ea;
+      background:linear-gradient(to top, rgba(0,0,0,.50), rgba(0,0,0,0));
+      font-size:14px;
+    }
+    .hero-fallback span{
+      background:rgba(0,0,0,.35);
+      padding:8px 10px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,.15);
+      backdrop-filter: blur(4px);
     }
 
     .content{
       max-width:780px;
       margin:0 auto;
+      margin-top:10px;
       font-size:18px;
-      line-height:1.65;
     }
 
     h1{
       font-size:34px;
-      line-height:1.2;
+      line-height:1.15;
+      text-align:center;
       margin:10px 0 10px;
-      text-align:center;
     }
+
     .subtitle{
-      font-size:18px;
-      color:var(--muted);
       text-align:center;
-      margin:0 auto 22px;
-      max-width:720px;
+      color:var(--muted);
+      font-size:17px;
+      margin:0 auto 18px;
+      max-width:640px;
     }
-    p{margin:0 0 16px;color:var(--muted)}
+
+    .content p{
+      margin:0 0 14px;
+    }
 
     .info{
       background:var(--card);
       border:1px solid var(--border);
       border-left:4px solid var(--accent);
-      border-radius:12px;
-      padding:18px 18px;
-      margin:18px 0 22px;
+      border-radius:14px;
+      padding:16px 16px 14px;
+      margin:18px 0 18px;
     }
     .info h2{
-      font-size:20px;
-      margin:0 0 10px;
-      color:#0a261f;
+      font-size:18px;
+      margin-bottom:10px;
     }
-    .info ul{padding-left:18px}
-    .info li{margin:8px 0;color:#2c2c2c}
+    .info ul{
+      padding-left:18px;
+      color:#223;
+    }
+    .info li{
+      margin:6px 0;
+    }
 
     .cta{
       text-align:center;
-      margin:18px 0 18px;
+      margin:18px 0 10px;
     }
     .cta a{
       display:inline-block;
-      background:linear-gradient(to bottom, var(--btn), var(--btn-hover));
+      background:var(--btn);
       color:#fff;
       text-decoration:none;
       font-weight:700;
       font-size:20px;
       padding:16px 34px;
-      border-radius:12px;
-      box-shadow:0 6px 0 #1b5e20, 0 10px 20px rgba(43,124,47,.25);
-      transition:.2s ease;
-      min-width:240px;
+      border-radius:14px;
+      box-shadow:0 10px 18px rgba(47,125,50,.18);
+      min-width:260px;
     }
-    .cta a:hover{transform:translateY(-2px)}
+    .cta a:hover{background:var(--btn-hover)}
     .cta-note{
-      font-size:12px;
-      color:#666;
       margin-top:10px;
+      font-size:12px;
+      color:#6b7280;
     }
 
     .disclaimer{
@@ -166,6 +192,7 @@
       margin-top:12px;
     }
 
+    /* Responsive */
     @media (max-width:768px){
       .wrap{padding:14px 12px 24px}
       .content{font-size:16.5px}
@@ -176,23 +203,23 @@
     }
     @media (max-width:480px){
       h1{font-size:24px}
-      .cta a{width:100%;max-width:320px}
+      .cta a{width:100%;max-width:340px}
       .footer a{display:inline-block;margin:6px 8px}
     }
   </style>
 </head>
 
 <body>
-
   <div class="topbar">
     <strong>ADVERTISEMENT</strong> • This is a sponsored advertorial. This page is for informational purposes only and is not medical advice.
   </div>
   <div class="sponsored">SPONSORED</div>
 
   <div class="wrap">
-
-    <div class="hero">
-      <img src="assets/hero.png" alt="Plant-based ingredient" loading="lazy">
+    <div class="hero" role="img" aria-label="Plant-based ingredient hero image">
+      <div class="hero-fallback">
+        <span>Plant-based ingredient</span>
+      </div>
     </div>
 
     <div class="content">
@@ -247,7 +274,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </body>
 </html>
