@@ -51,7 +51,7 @@
       padding:18px 15px 28px;
     }
 
-    /* HERO */
+    /* HERO (AJUSTADO) */
     .hero{
       border-radius:16px;
       overflow:hidden;
@@ -59,11 +59,16 @@
       margin:14px 0 22px;
       border:1px solid #eee;
       background:#f5f5f5;
+
+      /* controla o “tamanho aparente” */
+      max-height:320px;      /* desktop */
     }
     .hero img{
       width:100%;
-      height:auto;
+      height:320px;          /* casa com o max-height do container */
       display:block;
+      object-fit:cover;      /* corta sem distorcer */
+      object-position:center;
     }
     .hero-fallback{
       display:none;
@@ -83,14 +88,11 @@
       margin-bottom:10px;
     }
 
-    /* FIX: subtitle estava quebrado no teu código */
     .subtitle{
       color:#444;
       margin-bottom:18px;
       font-size:18px;
     }
-
-    p{ color:#222; }
 
     .info{
       background:var(--card);
@@ -98,13 +100,6 @@
       border-radius:12px;
       padding:18px;
       margin:24px 0;
-    }
-    .info h2{
-      font-size:20px;
-      margin-bottom:10px;
-    }
-    .info ul{
-      padding-left:18px;
     }
 
     .cta{
@@ -155,6 +150,10 @@
       h1{font-size:28px}
       .subtitle{font-size:16px}
       .cta a{font-size:18px;padding:14px 26px}
+
+      /* HERO menor no mobile */
+      .hero{ max-height:220px; }
+      .hero img{ height:220px; }
     }
   </style>
 </head>
@@ -170,7 +169,6 @@
   <div class="wrap">
 
     <div class="hero">
-      <!-- IMAGEM: precisa existir em /assets/hero.png -->
       <img id="heroImg" src="assets/hero.png" alt="Plant-based ingredient"
            onerror="document.getElementById('heroFallback').style.display='block'; this.style.display='none';" />
       <div id="heroFallback" class="hero-fallback">
@@ -223,8 +221,6 @@
   </div>
 
   <script>
-    // ✅ COLE AQUI O TEU HOPLINK FINAL (com tracking)
-    // Se você já tem aquele da ClickBank com traffic_source/campaign, cola inteiro aqui.
     const HOPLINK =
       "https://482a29j3raz6sr8ajjq45ney81.hop.clickbank.net/?" +
       "traffic_source=revcontent&traffic_type=native&campaign=cb_berberine_us_mobile_v1&creative=hero&ad=learnmore";
@@ -234,5 +230,3 @@
 
 </body>
 </html>
-
-   
