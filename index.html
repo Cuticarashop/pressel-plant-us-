@@ -5,7 +5,14 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
   <title>Plant-Based Wellness | Sponsored Advertorial</title>
-  <meta name="description" content="Explore why this plant-based ingredient is getting attention." />
+  <meta name="description" content="A sponsored advertorial exploring a plant-based ingredient many people are learning about as part of everyday wellness routines." />
+
+  <!-- Optional (good for link previews) -->
+  <meta property="og:title" content="Plant-Based Wellness | Sponsored Advertorial" />
+  <meta property="og:description" content="A sponsored advertorial exploring a plant-based ingredient many people are learning about as part of everyday wellness routines." />
+  <meta property="og:image" content="assets/berberine-bg-1200x628.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="assets/berberine-bg-1200x628.png" />
 
   <style>
     :root{
@@ -13,8 +20,6 @@
       --muted:#555;
       --btn:#2f7d32;
       --btn-hover:#1b5e20;
-      --card:#f6fff6;
-      --border:#dfeee0;
       --shadow:0 8px 20px rgba(0,0,0,.10);
     }
     *{box-sizing:border-box;margin:0;padding:0}
@@ -58,7 +63,7 @@
     h1{font-size:34px;margin:10px 0 10px}
     .subtitle{font-size:17px;color:#444;margin-bottom:18px}
 
-    /* ===== HERO (DESKTOP 2 COLUNAS) ===== */
+    /* HERO */
     .hero{
       max-width:780px;
       margin:12px auto 18px;
@@ -69,146 +74,83 @@
 
       display:grid;
       grid-template-columns: 1fr 1fr;
-      position:relative; /* IMPORTANTÍSSIMO pro overlay no mobile */
-    }
-
-    .hero-left{
-      background:#fff;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:22px;
-      min-height:220px;
-    }
-
-    .hero-badge{
-      background:rgba(0,0,0,.78);
-      color:#fff;
-      border-radius:10px;
-      padding:14px 14px;
-      max-width:330px;
-      box-shadow:0 6px 18px rgba(0,0,0,.18);
-    }
-    .hero-badge .ttl{
-      font-weight:800;
-      letter-spacing:.6px;
-      font-size:18px;
-      margin-bottom:6px;
-      text-transform:uppercase;
-    }
-    .hero-badge .sub{
-      font-size:13px;
-      opacity:.95;
-    }
-
-    .hero-right{
-      background:#0f3a2f;
-      min-height:220px;
       position:relative;
     }
 
+    .hero-left{
+      margin:0 8px;
+    }
+
+    /* Image: no distortion */
     .hero-right img{
       width:100%;
       height:100%;
-      object-fit:cover;
       display:block;
+      object-fit:cover;
     }
 
     .hero-fallback{
       display:none;
       align-items:center;
       justify-content:center;
-      height:100%;
-      color:#fff;
-      font-weight:700;
-      padding:18px;
+      background:#f6f6f6;
+      color:#555;
+      font-size:14px;
+      min-height:260px;
     }
-
-    /* Content blocks */
-    .info{
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:12px;
-      padding:18px;
-      margin:24px 0;
-    }
-    .info h2{font-size:18px;margin-bottom:10px}
-    .info ul{padding-left:18px}
-    .info li{margin:8px 0}
 
     .cta{
+      margin:18px 0;
       text-align:center;
-      margin:26px 0;
     }
     .cta a{
+      display:inline-block;
       background:var(--btn);
       color:#fff;
       text-decoration:none;
-      font-size:20px;
-      padding:16px 34px;
-      border-radius:40px;
-      display:inline-block;
-      font-weight:700;
+      padding:14px 28px;
+      border-radius:8px;
+      font-weight:bold;
+      font-size:18px;
     }
     .cta a:hover{background:var(--btn-hover)}
-    .cta-note{
-      font-size:12px;
-      color:#666;
-      margin-top:10px;
-    }
+    .cta-note{font-size:13px;color:var(--muted);margin-top:8px;}
 
     .disclaimer{
       font-size:13px;
-      color:#777;
       margin:18px 0;
-      padding:14px;
+      padding:12px;
       background:#f9f9f9;
-      border-radius:10px;
-      border-left:3px solid #ccc;
+      border-radius:6px;
+      color:#333;
     }
 
     .footer{
+      margin-top:24px;
+      font-size:13px;
+      color:var(--muted);
       text-align:center;
-      font-size:14px;
-      color:#666;
-      margin-top:22px;
     }
-    .footer a{
-      color:#444;
-      text-decoration:none;
-      margin:0 8px;
-    }
+    .footer a{color:var(--btn);text-decoration:none;}
 
-    /* ===== MOBILE (OVERLAY CERTINHO) ===== */
+    /* Mobile: overlay */
     @media (max-width:768px){
       h1{font-size:28px}
       .subtitle{font-size:16px}
-      .cta a{font-size:18px;padding:14px 26px}
 
       .hero{
-        grid-template-columns: 1fr; /* vira 1 coluna */
+        grid-template-columns: 1fr;
       }
 
-      /* a coluna branca vira overlay */
       .hero-left{
         position:absolute;
         inset:0;
         background:transparent;
-        min-height:unset;
         padding:12px;
-        align-items:flex-start;
-        justify-content:flex-start;
         z-index:3;
-        pointer-events:none; /* não atrapalha clique/scroll */
+        pointer-events:none;
       }
 
-      .hero-badge{
-        max-width:100%;
-      }
-      .hero-badge .ttl{font-size:16px}
-      .hero-badge .sub{font-size:12px}
-
-      /* controla altura no celular */
       .hero-right{
         min-height:210px;
       }
@@ -239,7 +181,12 @@
       </div>
 
       <div class="hero-right">
-        <img id="heroImg" src="assets/hero.png" alt="Plant-based ingredient"
+        <img id="heroImg"
+             src="assets/berberine-bg-1200x628.png"
+             alt="Plant-based ingredient"
+             loading="eager"
+             fetchpriority="high"
+             decoding="async"
              onerror="document.getElementById('heroFallback').style.display='flex'; this.style.display='none';" />
         <div id="heroFallback" class="hero-fallback">
           Sponsored advertorial (image unavailable)
@@ -255,17 +202,9 @@
       </p>
 
       <p>
-        More Americans are exploring simple, plant-based approaches that fit into a balanced lifestyle.
+        More people are exploring simple, plant-based approaches that fit into a balanced lifestyle.
+        This page shares general information and points to where you can learn more.
       </p>
-
-      <div class="info">
-        <h2>What This Page Covers</h2>
-        <ul>
-          <li>General overview of a plant-based ingredient</li>
-          <li>How readers think about it in wellness routines</li>
-          <li>Where to learn more</li>
-        </ul>
-      </div>
 
       <div class="cta">
         <a id="ctaLink" href="#" target="_blank" rel="noopener noreferrer">Learn More</a>
@@ -281,7 +220,7 @@
         <a href="terms.html">Terms of Use</a> |
         <a href="contact.html">Contact</a> |
         <a href="disclaimer.html">Disclaimer</a>
-        <div>© 2025 Plant-Based Wellness</div>
+        <div>© 2025 Sponsored Wellness Content</div>
       </div>
     </div>
 
@@ -290,10 +229,14 @@
   <script>
     const HOPLINK =
       "https://482a29j3raz6sr8ajjq45ney81.hop.clickbank.net/?" +
-      "traffic_source=revcontent&traffic_type=native&campaign=cb_berberine_us_mobile_v1&creative=hero&ad=learnmore";
+      "traffic_source=revcontent&traffic_type=native" +
+      "&campaign=cb_berberine_us_mobile_v1" +
+      "&creative=bg_1200x628" +
+      "&ad=learnmore";
 
     document.getElementById("ctaLink").href = HOPLINK;
   </script>
 
 </body>
 </html>
+
