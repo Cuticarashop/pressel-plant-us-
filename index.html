@@ -10,9 +10,9 @@
   <!-- Optional (good for link previews) -->
   <meta property="og:title" content="Plant-Based Wellness | Sponsored Advertorial" />
   <meta property="og:description" content="A sponsored advertorial exploring a plant-based ingredient many people are learning about as part of everyday wellness routines." />
-  <meta property="og:image" content="assets/berberine-bg-1200x628.png" />
+  <meta property="og:image" content="https://cuticarashop.github.io/pressel-plant-us-/assets/berberine-bg-1200x628.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="assets/berberine-bg-1200x628.png" />
+  <meta name="twitter:image" content="https://cuticarashop.github.io/pressel-plant-us-/assets/berberine-bg-1200x628.png" />
 
   <style>
     :root{
@@ -21,6 +21,8 @@
       --btn:#2f7d32;
       --btn-hover:#1b5e20;
       --shadow:0 8px 20px rgba(0,0,0,.10);
+      --border:#e6e6e6;
+      --soft:#f9f9f9;
     }
     *{box-sizing:border-box;margin:0;padding:0}
     body{
@@ -63,7 +65,7 @@
     h1{font-size:34px;margin:10px 0 10px}
     .subtitle{font-size:17px;color:#444;margin-bottom:18px}
 
-    /* HERO */
+    /* HERO (só imagem) */
     .hero{
       max-width:780px;
       margin:12px auto 18px;
@@ -71,37 +73,39 @@
       overflow:hidden;
       box-shadow:var(--shadow);
       background:#fff;
-
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      position:relative;
+      border:1px solid var(--border);
     }
-
-    .hero-left{
-      margin:0 8px;
-    }
-
-    /* Image: no distortion */
-    .hero-right img{
+    .hero img{
       width:100%;
-      height:100%;
-      display:block;
+      height:320px;
       object-fit:cover;
+      object-position:center;
+      display:block;
     }
-
     .hero-fallback{
       display:none;
-      align-items:center;
-      justify-content:center;
-      background:#f6f6f6;
-      color:#555;
-      font-size:14px;
-      min-height:260px;
+      padding:22px;
+      text-align:center;
+      color:#666;
+      background:#fff;
     }
 
-    .cta{
+    /* Info box (bem neutro) */
+    .info{
       margin:18px 0;
+      padding:14px;
+      border:1px solid #eee;
+      border-radius:10px;
+      background:#fafafa;
+    }
+    .info h2{font-size:18px;margin-bottom:8px}
+    .info ul{padding-left:18px}
+    .info li{margin:6px 0}
+
+    /* CTA */
+    .cta{
       text-align:center;
+      margin:22px 0 10px;
     }
     .cta a{
       display:inline-block;
@@ -109,20 +113,24 @@
       color:#fff;
       text-decoration:none;
       padding:14px 28px;
-      border-radius:8px;
-      font-weight:bold;
+      border-radius:10px;
+      font-weight:700;
       font-size:18px;
     }
     .cta a:hover{background:var(--btn-hover)}
-    .cta-note{font-size:13px;color:var(--muted);margin-top:8px;}
+    .cta-note{
+      font-size:13px;
+      color:var(--muted);
+      margin-top:10px;
+    }
 
     .disclaimer{
       font-size:13px;
-      margin:18px 0;
+      margin:20px 0;
       padding:12px;
-      background:#f9f9f9;
-      border-radius:6px;
-      color:#333;
+      background:var(--soft);
+      border-radius:8px;
+      border:1px solid #eee;
     }
 
     .footer{
@@ -133,30 +141,12 @@
     }
     .footer a{color:var(--btn);text-decoration:none;}
 
-    /* Mobile: overlay */
+    /* Mobile */
     @media (max-width:768px){
       h1{font-size:28px}
       .subtitle{font-size:16px}
-
-      .hero{
-        grid-template-columns: 1fr;
-      }
-
-      .hero-left{
-        position:absolute;
-        inset:0;
-        background:transparent;
-        padding:12px;
-        z-index:3;
-        pointer-events:none;
-      }
-
-      .hero-right{
-        min-height:210px;
-      }
-      .hero-right img{
-        height:210px;
-      }
+      .hero img{height:210px}
+      .cta a{font-size:18px;padding:14px 26px}
     }
   </style>
 </head>
@@ -173,24 +163,15 @@
 
     <!-- HERO -->
     <div class="hero">
-      <div class="hero-left">
-        <div class="hero-badge">
-          <div class="ttl">ADVERTISEMENT</div>
-          <div class="sub">Sponsored advertorial — learn more inside.</div>
-        </div>
-      </div>
-
-      <div class="hero-right">
-        <img id="heroImg"
-             src="assets/berberine-bg-1200x628.png"
-             alt="Plant-based ingredient"
-             loading="eager"
-             fetchpriority="high"
-             decoding="async"
-             onerror="document.getElementById('heroFallback').style.display='flex'; this.style.display='none';" />
-        <div id="heroFallback" class="hero-fallback">
-          Sponsored advertorial (image unavailable)
-        </div>
+      <img id="heroImg"
+           src="assets/berberine-bg-1200x628.png"
+           alt="Plant-based ingredient"
+           loading="eager"
+           fetchpriority="high"
+           decoding="async"
+           onerror="document.getElementById('heroFallback').style.display='block'; this.style.display='none';" />
+      <div id="heroFallback" class="hero-fallback">
+        Sponsored advertorial (image unavailable)
       </div>
     </div>
 
@@ -205,6 +186,15 @@
         More people are exploring simple, plant-based approaches that fit into a balanced lifestyle.
         This page shares general information and points to where you can learn more.
       </p>
+
+      <div class="info">
+        <h2>What This Page Covers</h2>
+        <ul>
+          <li>General overview of a plant-based ingredient</li>
+          <li>How readers think about it in wellness routines</li>
+          <li>Where to learn more</li>
+        </ul>
+      </div>
 
       <div class="cta">
         <a id="ctaLink" href="#" target="_blank" rel="noopener noreferrer">Learn More</a>
