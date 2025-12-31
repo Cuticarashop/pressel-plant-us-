@@ -7,7 +7,7 @@
   <title>Plant-Based Wellness | Sponsored Advertorial</title>
   <meta name="description" content="A sponsored advertorial exploring a plant-based ingredient many people are learning about as part of everyday wellness routines." />
 
-  <!-- Optional (good for link previews) -->
+  <!-- Link preview (use ABSOLUTE URLs) -->
   <meta property="og:title" content="Plant-Based Wellness | Sponsored Advertorial" />
   <meta property="og:description" content="A sponsored advertorial exploring a plant-based ingredient many people are learning about as part of everyday wellness routines." />
   <meta property="og:image" content="https://cuticarashop.github.io/pressel-plant-us-/assets/berberine-bg-1200x628.png" />
@@ -21,7 +21,6 @@
       --btn:#2f7d32;
       --btn-hover:#1b5e20;
       --shadow:0 8px 20px rgba(0,0,0,.10);
-      --border:#e6e6e6;
       --soft:#f9f9f9;
     }
     *{box-sizing:border-box;margin:0;padding:0}
@@ -65,7 +64,7 @@
     h1{font-size:34px;margin:10px 0 10px}
     .subtitle{font-size:17px;color:#444;margin-bottom:18px}
 
-    /* HERO (só imagem) */
+    /* HERO (só imagem, sem texto) */
     .hero{
       max-width:780px;
       margin:12px auto 18px;
@@ -73,39 +72,38 @@
       overflow:hidden;
       box-shadow:var(--shadow);
       background:#fff;
-      border:1px solid var(--border);
     }
     .hero img{
-      width:100%;
-      height:320px;
-      object-fit:cover;
-      object-position:center;
       display:block;
+      width:100%;
+      height:260px;
+      object-fit:cover;
     }
     .hero-fallback{
       display:none;
-      padding:22px;
+      padding:18px;
       text-align:center;
-      color:#666;
-      background:#fff;
+      font-size:13px;
+      color:#333;
+      background:var(--soft);
+      border:1px solid #eee;
     }
 
-    /* Info box (bem neutro) */
     .info{
       margin:18px 0;
       padding:14px;
+      background:var(--soft);
       border:1px solid #eee;
       border-radius:10px;
-      background:#fafafa;
+      font-size:14px;
     }
-    .info h2{font-size:18px;margin-bottom:8px}
+    .info h2{font-size:16px;margin-bottom:8px}
     .info ul{padding-left:18px}
     .info li{margin:6px 0}
 
-    /* CTA */
     .cta{
       text-align:center;
-      margin:22px 0 10px;
+      margin:18px 0 8px;
     }
     .cta a{
       display:inline-block;
@@ -129,7 +127,7 @@
       margin:20px 0;
       padding:12px;
       background:var(--soft);
-      border-radius:8px;
+      border-radius:10px;
       border:1px solid #eee;
     }
 
@@ -141,7 +139,6 @@
     }
     .footer a{color:var(--btn);text-decoration:none;}
 
-    /* Mobile */
     @media (max-width:768px){
       h1{font-size:28px}
       .subtitle{font-size:16px}
@@ -163,13 +160,15 @@
 
     <!-- HERO -->
     <div class="hero">
-      <img id="heroImg"
-           src="assets/berberine-bg-1200x628.png"
-           alt="Plant-based ingredient"
-           loading="eager"
-           fetchpriority="high"
-           decoding="async"
-           onerror="document.getElementById('heroFallback').style.display='block'; this.style.display='none';" />
+      <img
+        id="heroImg"
+        src="assets/berberine-bg-1200x628.png"
+        alt="Plant-based ingredient"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        onerror="document.getElementById('heroFallback').style.display='block'; this.style.display='none';"
+      />
       <div id="heroFallback" class="hero-fallback">
         Sponsored advertorial (image unavailable)
       </div>
@@ -229,4 +228,3 @@
 
 </body>
 </html>
-
