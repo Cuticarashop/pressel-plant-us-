@@ -7,12 +7,11 @@
   <title>Informational Advertorial | Sponsored</title>
   <meta name="description" content="An informational sponsored advertorial providing general background on a plant-based ingredient." />
 
-  <!-- Link preview (ABSOLUTE URLs) -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Informational Advertorial | Sponsored" />
   <meta property="og:description" content="An informational sponsored advertorial providing general background on a plant-based ingredient." />
   <meta property="og:image" content="https://cuticarashop.github.io/pressel-plant-us-/assets/plant-based-hero.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://cuticarashop.github.io/pressel-plant-us-/assets/plant-based-hero.jpg" />
 
   <style>
     :root{
@@ -34,7 +33,7 @@
       line-height:1.6;
     }
 
-    /* Compliance bars */
+    /* Compliance */
     .topbar{
       background:#f4f4f4;
       padding:10px 12px;
@@ -66,14 +65,87 @@
       margin:0 auto;
     }
 
-    /* Strong disclosure block (helps Missing Disclosures) */
     .disclosure{
-      max-width:780px;
-      margin:12px auto 14px;
+      margin:12px auto 18px;
       padding:12px 14px;
       background:var(--soft);
       border:1px solid var(--border);
       text-align:center;
+      font-size:14px;
+    }
+
+    /* HERO FIXADO (aqui estava o brete) */
+    .hero{
+      margin:18px 0;
+      text-align:center;
+    }
+    .hero img{
+      display:block;
+      width:100%;
+      max-width:780px;
+      height:auto;
+      margin:0 auto;
+      border-radius:14px;
+      box-shadow:var(--shadow);
+    }
+
+    .publisher{
+      margin:14px 0 6px;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    h1{
+      font-size:34px;
+      line-height:1.15;
+      margin-bottom:12px;
+    }
+
+    .subtitle{
+      color:var(--muted);
+      margin-bottom:14px;
+    }
+
+    .info{
+      margin:16px 0;
+      padding:14px;
+      border:1px solid var(--border);
+      border-radius:14px;
+      background:#fff;
+    }
+
+    .info h2{
+      font-size:18px;
+      margin-bottom:8px;
+    }
+
+    .info ul{
+      padding-left:18px;
+    }
+
+    .cta{
+      margin:22px 0;
+      text-align:center;
+    }
+
+    .cta a{
+      display:inline-block;
+      background:var(--btn);
+      color:#fff;
+      padding:14px 30px;
+      border-radius:999px;
+      font-weight:700;
+      text-decoration:none;
+      box-shadow:var(--shadow);
+      transition:.15s ease;
+    }
+    .cta a:hover{background:var(--btn-hover)}
+
+    .cta-note,
+    .cta-disclosure{
+      font-size:12px;
+      color:var(--muted);
+      margin-top:8px;
     }
 
     .medical{
@@ -84,6 +156,7 @@
       border-radius:10px;
       border:1px solid var(--border);
       color:#222;
+      text-align:center;
     }
 
     .footer{
@@ -94,36 +167,9 @@
     }
     .footer a{color:var(--btn);text-decoration:none;}
 
-    /* (Optional) Keep layout clean even without extra CSS */
-    .hero{margin:14px 0; text-align:center;}
-    .hero img{width:100%; max-width:780px; height:auto; border-radius:14px; box-shadow:var(--shadow);}
-    .hero-fallback{display:none; padding:18px; border:1px solid var(--border); background:var(--soft); border-radius:12px; text-align:center;}
-    .publisher{margin:10px 0 6px; color:var(--muted); font-size:14px;}
-    h1{font-size:34px; line-height:1.15; margin:8px 0 10px;}
-    .subtitle{color:var(--muted); margin-bottom:14px;}
-    .info{margin:16px 0; padding:14px; border:1px solid var(--border); border-radius:14px; background:#fff;}
-    .info h2{font-size:18px; margin-bottom:8px;}
-    .info ul{padding-left:18px;}
-    .cta{margin:18px 0; text-align:center;}
-    .cta a{
-      display:inline-block;
-      background:var(--btn);
-      color:#fff;
-      padding:14px 28px;
-      border-radius:999px;
-      font-weight:700;
-      text-decoration:none;
-      box-shadow:var(--shadow);
-      transition:.15s ease;
-    }
-    .cta a:hover{background:var(--btn-hover)}
-    .cta-note{font-size:12px; color:var(--muted); margin-top:10px;}
-    .cta-disclosure{font-size:12px; color:var(--muted); margin-top:6px;}
-
     @media (max-width:768px){
       h1{font-size:26px}
       .subtitle{font-size:15px}
-      .cta a{font-size:18px;padding:14px 26px}
     }
   </style>
 </head>
@@ -138,26 +184,13 @@
 
   <div class="wrap">
 
-    <!-- Strong disclosure (important for Revcontent) -->
     <div class="disclosure">
       <b>Disclosure:</b> This page is a paid advertisement (sponsored advertorial) created for informational purposes only.
       It does not provide medical advice.
     </div>
 
-    <!-- HERO -->
     <div class="hero">
-      <img
-        id="heroImg"
-        src="assets/plant-based-hero.jpg"
-        alt="Plant-based ingredient (illustrative image)"
-        loading="eager"
-        fetchpriority="high"
-        decoding="async"
-        onerror="document.getElementById('heroFallback').style.display='block'; this.style.display='none';"
-      />
-      <div id="heroFallback" class="hero-fallback">
-        Sponsored advertorial (image unavailable)
-      </div>
+      <img src="assets/plant-based-hero.jpg" alt="Plant-based ingredient (illustrative image)">
     </div>
 
     <div class="content">
@@ -186,7 +219,6 @@
       <div class="cta">
         <a id="ctaLink" href="#" rel="nofollow noopener noreferrer">Learn More</a>
         <div class="cta-note">Individual experiences vary. Consult a qualified professional for personal guidance.</div>
-
         <div class="cta-disclosure">
           <b>Sponsored:</b> Clicking “Learn More” will take you to an external website.
         </div>
@@ -204,49 +236,23 @@
         <div>© 2025 Health Insider</div>
       </div>
     </div>
-
   </div>
 
   <script>
-    // ========= CONFIG =========
     // Base hoplink (produto)
     const HOP_BASE = "https://58073-i2-jw3vl4xtgg32yaz3q.hop.clickbank.net/";
-    // ==========================
 
-    // Pega TODOS os params que vierem da Revcontent no Destination URL
-    // (campaign, utm_*, pixel, creative, ad, extclid, etc.)
+    // Pega TODOS os parâmetros que vierem da campanha
     const params = new URLSearchParams(window.location.search);
 
-    // Defaults seguros (se não vierem)
     if (!params.has("traffic_source")) params.set("traffic_source", "revcontent");
     if (!params.has("traffic_type")) params.set("traffic_type", "native");
+    if (!params.has("campaign")) params.set("campaign", "berberine_us_unknown");
 
-    // Se a campanha não mandar, evita vazio
-    if (!params.has("campaign")) params.set("campaign", "berberine_us_mobile_unknown");
-
-    // Monta hoplink final
     const HOPLINK = HOP_BASE + "?" + params.toString();
 
-    // Botão aponta pro hoplink
     const cta = document.getElementById("ctaLink");
     if (cta) cta.href = HOPLINK;
-
-    // Clique em qualquer lugar vai pro hoplink (mesma aba) — mais safe que window.open
-    document.addEventListener("click", function (e) {
-      const a = e.target.closest("a");
-
-      // Não sequestra links do rodapé (policies)
-      if (a && a.closest(".footer")) return;
-
-      // Se clicou no botão, deixa normal
-      if (a && a.id === "ctaLink") return;
-
-      // Se clicou em outro link fora do footer, deixa seguir
-      if (a && a.getAttribute("href") && a.getAttribute("href") !== "#") return;
-
-      // Redireciona na mesma aba
-      window.location.href = HOPLINK;
-    });
   </script>
 
 </body>
