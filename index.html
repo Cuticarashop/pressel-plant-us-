@@ -73,107 +73,6 @@
       padding:12px 14px;
       background:var(--soft);
       border:1px solid var(--border);
-      border-radius:12px;
-      font-size:13px;
-      color:#222;
-    }
-    .disclosure b{font-weight:700}
-
-    /* Publisher label (helps Brand Name consistency) */
-    .publisher{
-      margin:10px 0 0;
-      font-size:13px;
-      color:var(--muted);
-    }
-
-    h1{
-      font-size:32px;
-      margin:10px 0 10px;
-      line-height:1.25;
-    }
-
-    .subtitle{
-      font-size:16px;
-      color:#444;
-      margin-bottom:14px;
-    }
-
-    /* HERO */
-    .hero{
-      max-width:780px;
-      margin:12px auto 18px;
-      border-radius:16px;
-      overflow:hidden;
-      box-shadow:var(--shadow);
-      background:#fff;
-      border:1px solid #eee;
-    }
-    .hero img{
-      width:100%;
-      height:260px;
-      object-fit:cover;
-      display:block;
-    }
-    .hero-fallback{
-      display:none;
-      padding:18px;
-      text-align:center;
-      color:#333;
-      background:#fafafa;
-      font-size:13px;
-    }
-
-    /* Info box */
-    .info{
-      margin:16px 0 18px;
-      padding:14px 14px;
-      background:#fafafa;
-      border:1px solid var(--border);
-      border-radius:12px;
-    }
-    .info h2{
-      font-size:15px;
-      margin-bottom:8px;
-    }
-    .info ul{
-      padding-left:18px;
-      font-size:14px;
-      color:#222;
-    }
-    .info li{margin:6px 0}
-
-    /* CTA */
-    .cta{
-      text-align:center;
-      margin:18px 0 10px;
-    }
-    .cta a{
-      display:inline-block;
-      background:var(--btn);
-      color:#fff;
-      text-decoration:none;
-      padding:14px 28px;
-      border-radius:10px;
-      font-weight:700;
-      font-size:18px;
-    }
-    .cta a:hover{background:var(--btn-hover)}
-    .cta-note{
-      font-size:13px;
-      color:var(--muted);
-      margin-top:10px;
-    }
-
-    /* Extra disclosure near CTA (helps Missing Disclosures) */
-    .cta-disclosure{
-      margin:10px auto 0;
-      max-width:680px;
-      font-size:12px;
-      color:#333;
-      background:var(--soft);
-      border:1px solid var(--border);
-      border-radius:10px;
-      padding:10px 12px;
       text-align:center;
     }
 
@@ -284,17 +183,39 @@
   </div>
 
   <script>
-    const HOPLINK =
-      "https://482a29j3raz6sr8ajjq45ney81.hop.clickbank.net/?" +
-      "traffic_source=revcontent&traffic_type=native" +
-      "&campaign=cb_berberine_us_mobile_v1" +
-      "&creative=plant_based_hero" +
-      "&ad=learnmore";
+    // 1) HOPLINK "limpo" e seguro (evita erro com & e mantém tudo certinho)
+    const url = new URL("https://58073-i2-jw3vl4xtgg32yaz3q.hop.clickbank.net/");
 
-    document.getElementById("ctaLink").href = HOPLINK;
+    url.searchParams.set("traffic_source", "revcontent");
+    url.searchParams.set("traffic_type", "native");
+    url.searchParams.set("campaign", "berberine_us_mobile_v1");
+
+    // IMPORTANTE: essas macros {{...}} são para a REVCONTENT preencher
+    url.searchParams.set("creative", "{{content_id}}");
+    url.searchParams.set("ad", "{{widget_id}}");
+    url.searchParams.set("extclid", "{{click_id}}");
+
+    const HOPLINK = url.toString();
+
+    // Botão
+    const cta = document.getElementById("ctaLink");
+    cta.href = HOPLINK;
+
+    // 2) Opcional (recomendado pra conversão): clique em qualquer lugar vai pro link
+    document.addEventListener("click", function (e) {
+      // não sequestra clique do rodapé (policies)
+      const a = e.target.closest("a");
+      if (a && a.closest(".footer")) return;
+
+      // se clicou no próprio botão, deixa ele funcionar normal
+      if (a && a.id === "ctaLink") return;
+
+      window.open(HOPLINK, "_blank", "noopener,noreferrer");
+    }, { passive: true });
   </script>
 
 </body>
 </html>
 
 
+ 
