@@ -94,10 +94,35 @@
     }
     .footer a{color:var(--btn);text-decoration:none;}
 
+    /* (Optional) Keep layout clean even without extra CSS */
+    .hero{margin:14px 0; text-align:center;}
+    .hero img{width:100%; max-width:780px; height:auto; border-radius:14px; box-shadow:var(--shadow);}
+    .hero-fallback{display:none; padding:18px; border:1px solid var(--border); background:var(--soft); border-radius:12px; text-align:center;}
+    .publisher{margin:10px 0 6px; color:var(--muted); font-size:14px;}
+    h1{font-size:34px; line-height:1.15; margin:8px 0 10px;}
+    .subtitle{color:var(--muted); margin-bottom:14px;}
+    .info{margin:16px 0; padding:14px; border:1px solid var(--border); border-radius:14px; background:#fff;}
+    .info h2{font-size:18px; margin-bottom:8px;}
+    .info ul{padding-left:18px;}
+    .cta{margin:18px 0; text-align:center;}
+    .cta a{
+      display:inline-block;
+      background:var(--btn);
+      color:#fff;
+      padding:14px 28px;
+      border-radius:999px;
+      font-weight:700;
+      text-decoration:none;
+      box-shadow:var(--shadow);
+      transition:.15s ease;
+    }
+    .cta a:hover{background:var(--btn-hover)}
+    .cta-note{font-size:12px; color:var(--muted); margin-top:10px;}
+    .cta-disclosure{font-size:12px; color:var(--muted); margin-top:6px;}
+
     @media (max-width:768px){
       h1{font-size:26px}
       .subtitle{font-size:15px}
-      .hero img{height:210px}
       .cta a{font-size:18px;padding:14px 26px}
     }
   </style>
@@ -159,7 +184,7 @@
       </div>
 
       <div class="cta">
-        <a id="ctaLink" href="#" target="_blank" rel="noopener noreferrer">Learn More</a>
+        <a id="ctaLink" href="#" rel="nofollow noopener noreferrer">Learn More</a>
         <div class="cta-note">Individual experiences vary. Consult a qualified professional for personal guidance.</div>
 
         <div class="cta-disclosure">
@@ -183,39 +208,48 @@
   </div>
 
   <script>
-    // 1) HOPLINK "limpo" e seguro (evita erro com & e mantém tudo certinho)
-    const url = new URL("https://58073-i2-jw3vl4xtgg32yaz3q.hop.clickbank.net/");
+    // ========= CONFIG =========
+    // Base hoplink (produto)
+    const HOP_BASE = "https://58073-i2-jw3vl4xtgg32yaz3q.hop.clickbank.net/";
+    // ==========================
 
-    url.searchParams.set("traffic_source", "revcontent");
-    url.searchParams.set("traffic_type", "native");
-    url.searchParams.set("campaign", "berberine_us_mobile_v1");
+    // Pega TODOS os params que vierem da Revcontent no Destination URL
+    // (campaign, utm_*, pixel, creative, ad, extclid, etc.)
+    const params = new URLSearchParams(window.location.search);
 
-    // IMPORTANTE: essas macros {{...}} são para a REVCONTENT preencher
-    url.searchParams.set("creative", "{{content_id}}");
-    url.searchParams.set("ad", "{{widget_id}}");
-    url.searchParams.set("extclid", "{{click_id}}");
+    // Defaults seguros (se não vierem)
+    if (!params.has("traffic_source")) params.set("traffic_source", "revcontent");
+    if (!params.has("traffic_type")) params.set("traffic_type", "native");
 
-    const HOPLINK = url.toString();
+    // Se a campanha não mandar, evita vazio
+    if (!params.has("campaign")) params.set("campaign", "berberine_us_mobile_unknown");
 
-    // Botão
+    // Monta hoplink final
+    const HOPLINK = HOP_BASE + "?" + params.toString();
+
+    // Botão aponta pro hoplink
     const cta = document.getElementById("ctaLink");
-    cta.href = HOPLINK;
+    if (cta) cta.href = HOPLINK;
 
-    // 2) Opcional (recomendado pra conversão): clique em qualquer lugar vai pro link
+    // Clique em qualquer lugar vai pro hoplink (mesma aba) — mais safe que window.open
     document.addEventListener("click", function (e) {
-      // não sequestra clique do rodapé (policies)
       const a = e.target.closest("a");
+
+      // Não sequestra links do rodapé (policies)
       if (a && a.closest(".footer")) return;
 
-      // se clicou no próprio botão, deixa ele funcionar normal
+      // Se clicou no botão, deixa normal
       if (a && a.id === "ctaLink") return;
 
-      window.open(HOPLINK, "_blank", "noopener,noreferrer");
-    }, { passive: true });
+      // Se clicou em outro link fora do footer, deixa seguir
+      if (a && a.getAttribute("href") && a.getAttribute("href") !== "#") return;
+
+      // Redireciona na mesma aba
+      window.location.href = HOPLINK;
+    });
   </script>
 
 </body>
 </html>
-
 
  
