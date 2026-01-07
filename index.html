@@ -4,15 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-  <title>ADVERTISEMENT | Sponsored Advertorial</title>
-  <meta name="description" content="Paid advertisement (sponsored advertorial) for informational purposes only. Not medical advice." />
+  <title>Sponsored Information | Advertisement</title>
+  <meta name="description" content="Paid advertisement (sponsored informational content). For informational purposes only. Not medical advice." />
 
-  <!-- Open Graph (ABSOLUTE URLS) -->
-  <meta property="og:title" content="ADVERTISEMENT | Sponsored Advertorial" />
-  <meta property="og:description" content="Paid advertisement (sponsored advertorial) for informational purposes only. Not medical advice." />
-  <meta property="og:image" content="https://cuticarashop.github.io/pressel-plant-us-v3/assets/plant-based-hero.jpg" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Sponsored Information | Advertisement" />
+  <meta property="og:description" content="Paid advertisement (sponsored informational content). For informational purposes only. Not medical advice." />
+  <meta property="og:image" content="https://cuticarashop.github.io/pressel-plant-us-/assets/plant-based-hero.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://cuticarashop.github.io/pressel-plant-us-v3/assets/plant-based-hero.jpg" />
+  <meta name="twitter:image" content="https://cuticarashop.github.io/pressel-plant-us-/assets/plant-based-hero.jpg" />
 
   <style>
     :root{
@@ -26,7 +26,6 @@
       --maxw:980px;
       --content:780px;
     }
-
     *{box-sizing:border-box;margin:0;padding:0}
     body{
       font-family: Arial, Helvetica, sans-serif;
@@ -34,8 +33,6 @@
       color:var(--text);
       line-height:1.6;
     }
-
-    /* Compliance bars */
     .topbar{
       background:#f4f4f4;
       padding:10px 12px;
@@ -44,7 +41,6 @@
       border-bottom:1px solid #ddd;
     }
     .topbar strong{color:#d32f2f}
-
     .sponsored{
       background:#1f6b2a;
       color:#fff;
@@ -55,37 +51,29 @@
       padding:6px 0;
       text-transform:uppercase;
     }
-
     .wrap{
       max-width:var(--maxw);
       margin:0 auto;
       padding:18px 15px 28px;
     }
-
     .content{
       max-width:var(--content);
       margin:0 auto;
     }
-
-    /* Disclosure block (strong + visible) */
     .disclosure{
       max-width:var(--content);
-      margin:12px auto 18px;
+      margin:10px auto 14px;
       padding:12px 14px;
       background:var(--soft);
       border:1px solid var(--border);
-      border-radius:10px;
       text-align:center;
       font-size:14px;
     }
-    .disclosure b{display:inline-block;margin-right:4px;}
-    .hardline{
+    .disclosure .hardline{
       margin-top:6px;
       font-size:12px;
       color:var(--muted);
     }
-
-    /* HERO */
     .hero{
       max-width:var(--content);
       margin:0 auto 14px;
@@ -95,33 +83,16 @@
       border:1px solid var(--border);
       background:#fff;
     }
-    .hero img{
-      width:100%;
-      height:auto;
-      display:block;
-    }
-
+    .hero img{width:100%;height:auto;display:block;}
     .publisher{
       margin-top:6px;
       font-size:12px;
       color:var(--muted);
       text-align:left;
     }
-
-    h1{
-      margin-top:8px;
-      font-size:34px;
-      line-height:1.15;
-    }
-
-    .subtitle{
-      margin-top:10px;
-      color:var(--muted);
-      font-size:15px;
-    }
-
+    h1{margin-top:8px;font-size:32px;line-height:1.15;}
+    .subtitle{margin-top:10px;color:var(--muted);font-size:15px;}
     p{margin-top:10px;}
-
     .info{
       margin-top:16px;
       border:1px solid var(--border);
@@ -129,32 +100,10 @@
       padding:14px;
       background:#fff;
     }
-    .info h2{
-      font-size:16px;
-      margin-bottom:8px;
-    }
+    .info h2{font-size:16px;margin-bottom:8px;}
     .info ul{margin-left:18px;}
     .info li{margin:4px 0;}
-
-    .cta{
-      margin:18px 0 8px;
-      text-align:center;
-    }
-
-    /* EXTRA DISCLOSURE NEAR CTA (Revcontent-friendly) */
-    .cta-pre{
-      margin:0 auto 10px;
-      max-width:560px;
-      font-size:12px;
-      color:#333;
-      background:#fff8e1;
-      border:1px solid #f0e0b2;
-      border-radius:10px;
-      padding:10px 12px;
-      text-align:center;
-    }
-    .cta-pre strong{color:#b71c1c;}
-
+    .cta{margin:18px 0 8px;text-align:center;}
     .cta a{
       display:inline-block;
       background:var(--btn);
@@ -166,18 +115,10 @@
       box-shadow:var(--shadow);
       transition:transform .10s ease, background .15s ease;
     }
-    .cta a:hover{
-      background:var(--btn-hover);
-      transform:translateY(-1px);
+    .cta a:hover{background:var(--btn-hover);transform:translateY(-1px);}
+    .cta-note,.cta-disclosure{
+      font-size:12px;color:var(--muted);margin-top:8px;
     }
-
-    .cta-note,
-    .cta-disclosure{
-      font-size:12px;
-      color:var(--muted);
-      margin-top:8px;
-    }
-
     .medical{
       font-size:13px;
       margin:18px 0;
@@ -188,7 +129,6 @@
       color:#222;
       text-align:center;
     }
-
     .footer{
       margin-top:22px;
       font-size:13px;
@@ -197,48 +137,41 @@
     }
     .footer a{color:var(--btn);text-decoration:none;}
     .footer a:hover{text-decoration:underline;}
-
     @media (max-width:768px){
       h1{font-size:26px}
-      .subtitle{font-size:15px}
       .wrap{padding:14px 12px 22px}
     }
   </style>
 </head>
 
 <body>
-
   <div class="topbar">
-    <strong>ADVERTISEMENT</strong> • Paid advertisement (sponsored advertorial). For informational purposes only. Not medical advice.
+    <strong>ADVERTISEMENT</strong> • This is paid advertising (sponsored informational content). For informational purposes only. Not medical advice.
   </div>
 
   <div class="sponsored">SPONSORED</div>
 
   <div class="wrap">
-
     <div class="disclosure">
-      <b>Disclosure:</b> This page is a PAID ADVERTISEMENT and SPONSORED ADVERTORIAL created for informational purposes only. It does not provide medical advice.
-      <div class="hardline">
-        This content is advertising and is not news, editorial, or independent journalism.
-      </div>
+      <b>Disclosure:</b> This page is a PAID ADVERTISEMENT and SPONSORED INFORMATIONAL CONTENT created for informational purposes only. It does not provide medical advice.
+      <div class="hardline">This is advertising content and is not news, editorial, or independent journalism.</div>
     </div>
 
     <div class="hero">
-      <img src="assets/plant-based-hero.jpg" alt="Plant-based ingredient (illustrative image)" loading="eager" decoding="async">
+      <img src="https://cuticarashop.github.io/pressel-plant-us-/assets/plant-based-hero.jpg" alt="Illustrative image" loading="eager" decoding="async">
     </div>
 
     <div class="content">
       <div class="publisher">Publisher: <b>Health Insider</b></div>
 
-      <h1>ADVERTISEMENT: Sponsored Informational Content on a Plant-Based Ingredient</h1>
+      <h1>Sponsored Information About a Plant-Based Ingredient</h1>
 
       <p class="subtitle">
-        This sponsored advertorial provides general background information and links to where you can learn more.
+        This sponsored content provides general background information and links to an external website where you can learn more.
       </p>
 
       <p>
-        People often explore different lifestyle approaches as part of everyday wellness. This page shares general,
-        non-medical information and points to additional resources.
+        People often explore different lifestyle approaches as part of everyday wellness. This page shares general, non-medical information and points to additional resources.
       </p>
 
       <div class="info">
@@ -251,52 +184,41 @@
       </div>
 
       <div class="cta">
-        <div class="cta-pre">
-          <strong>ADVERTISEMENT:</strong> Clicking “Learn More” takes you to a sponsored external website.
-          This is advertising content (not news/editorial).
-        </div>
-
-        <a id="ctaLink" href="#" target="_blank" rel="nofollow noopener noreferrer">Learn More</a>
-
+        <div class="cta-disclosure"><b>ADVERTISEMENT:</b> Clicking “Learn More” takes you to a sponsored external website.</div>
+        <a id="ctaLink" href="#" target="_blank" rel="nofollow noopener noreferrer" referrerpolicy="no-referrer">Learn More</a>
         <div class="cta-note">Individual experiences vary. Consult a qualified professional for personal guidance.</div>
-        <div class="cta-disclosure">
-          <b>Sponsored:</b> Clicking “Learn More” will take you to an external website.
-        </div>
       </div>
 
       <div class="medical">
-        This advertorial is for informational purposes only and does not diagnose, treat, cure, or prevent any disease.
+        This content is for informational purposes only and does not diagnose, treat, cure, or prevent any disease.
       </div>
 
       <div class="footer">
-        <a href="privacy.html">Privacy Policy</a> |
-        <a href="terms.html">Terms of Use</a> |
-        <a href="contact.html">Contact</a> |
-        <a href="disclaimer.html">Disclaimer</a>
-        <div>© 2025 Health Insider</div>
+        <a href="https://cuticarashop.github.io/pressel-plant-us-/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="https://cuticarashop.github.io/pressel-plant-us-/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="https://cuticarashop.github.io/pressel-plant-us-/contact.html" rel="nofollow">Contact</a> |
+        <a href="https://cuticarashop.github.io/pressel-plant-us-/disclaimer.html" rel="nofollow">Disclaimer</a>
+        <div>© 2026 Health Insider</div>
       </div>
     </div>
   </div>
 
   <script>
-    // Base hoplink (vendor)
     const HOP_BASE = "https://58073-i2-jw3vl4xtgg32yaz3q.hop.clickbank.net/";
-
-    // Keep all tracking params from Revcontent
     const params = new URLSearchParams(window.location.search);
 
     if (!params.has("traffic_source")) params.set("traffic_source", "revcontent");
     if (!params.has("traffic_type")) params.set("traffic_type", "native");
-    if (!params.has("campaign")) params.set("campaign", "berberine_us_unknown");
+    if (!params.has("campaign")) params.set("campaign", "berberine_us_v3");
 
     const HOPLINK = HOP_BASE + "?" + params.toString();
 
     const cta = document.getElementById("ctaLink");
     if (cta) cta.href = HOPLINK;
   </script>
-
 </body>
 </html>
+
 
 
 
